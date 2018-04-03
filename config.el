@@ -1,3 +1,4 @@
+
 ;; ~/.emacs.d/personal/config.el
 
 ;;;;;;;;;
@@ -5,10 +6,9 @@
 ;;;;;;;;;
 
 (add-to-list 'load-path "~/.emacs.d/personal/env")
-;; (load "kbd-cfg.el")
 (load "package-cfg.el")
 (load "editing-cfg.el")
-;; (load "navigation-cfg.el")
+(load "navigation-cfg.el")
 (load "ui-cfg.el")
 (load "on-start-cfg.el")
 
