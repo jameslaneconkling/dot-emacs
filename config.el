@@ -25,5 +25,7 @@
 ;;;;;;;;;;;;;
 ;; program ;;
 ;;;;;;;;;;;;;
+
 (add-to-list 'load-path "~/.emacs.d/personal/program")
 (load "magit-cfg.el")
+(load "evil-cfg.el")

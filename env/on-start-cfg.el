@@ -23,12 +23,6 @@
 ;; (openwith-mode t)
 ;; (setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
 
-
-;; packages loaded on start
-(require 'evil)
-(evil-mode t)
-
-
 ;; open in full screen
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))

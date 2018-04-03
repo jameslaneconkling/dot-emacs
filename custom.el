@@ -9,7 +9,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
+    (neotree diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
