@@ -4,11 +4,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(line-number-mode nil)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
+    (diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

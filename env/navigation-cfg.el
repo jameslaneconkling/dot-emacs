@@ -15,6 +15,21 @@
 (global-set-key (kbd "C-c C-f") 'helm-do-ag-project-root) ;; ag text search current project
 
 
+;; set pageup/pagedown to goto next buffers
+(global-set-key (kbd "<next>") 'next-buffer)
+(global-set-key (kbd "<prior>") 'previous-buffer)
+
+
+;; projectile
+(use-package projectile :ensure t)
+(use-package helm-projectile :ensure t)
+;; why can't the below overwrite the defaults: "C-c p f/F/p"?
+(global-set-key (kbd "C-x p f") 'helm-projectile) ;; find files in projectile project
+(global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
+(global-set-key (kbd "C-x p p") 'helm-projectile-switch-project) ;; switch projectile projects
+(projectile-global-mode)
+
+
 ;; Ido
 
 ;; ido-mode allows you to more easily navigate choices. For example,
