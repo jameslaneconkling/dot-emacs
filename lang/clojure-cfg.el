@@ -97,6 +97,8 @@
   (interactive)
   (cider-repl-set-ns "user"))
 
+(setq cider-repl-pop-to-buffer-on-connect nil)
+
 (eval-after-load 'cider
   '(progn
      (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
@@ -104,13 +106,19 @@
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)
 
+     ;; TODO - is there a better way to define these so I don't have to use C-, as leader key?
      (define-key cider-mode-map (kbd "C-, '") 'cider-jack-in)
      (define-key cider-mode-map (kbd "C-, e e") 'cider-eval-last-sexp)
      (define-key cider-mode-map (kbd "C-, e b") 'cider-eval-buffer)
      (define-key cider-mode-map (kbd "C-, e c") 'cider-pprint-eval-last-sexp-to-comment)
      (define-key cider-mode-map (kbd "C-, e r") 'cider-eval-last-sexp-and-replace)
      ;; TODO - send current namespace to repl
-     (define-key cider-mode-map (kbd "C-, i") 'cider-inspect-last-result)))
+     ;; TODO - yank/delete sexp
+     (define-key cider-mode-map (kbd "C-, i") 'cider-inspect-last-result)
+     (define-key cider-mode-map (kbd "C-, s") 'paredit-forward-slurp-sexp)
+     (define-key cider-mode-map (kbd "C-, S") 'paredit-backward-slurp-sexp)
+     (define-key cider-mode-map (kbd "C-, b") 'paredit-forward-barf-sexp)
+     (define-key cider-mode-map (kbd "C-, B") 'paredit-backward-barf-sexp)))
 
 ;; TODO easy bindings for cider
 ;; * view docs for var: `, h h`
