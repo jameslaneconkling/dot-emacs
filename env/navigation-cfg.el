@@ -9,6 +9,9 @@
 (use-package helm :ensure t)
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+;; (setq helm-mode-fuzzy-match t)
+;; (setq helm-completion-in-region-fuzzy-match t)
+(setq helm-M-x-fuzzy-match t)
 
 ;; helm-ag
 (use-package helm-ag :ensure t) ;; must make sure `ag` is installed
