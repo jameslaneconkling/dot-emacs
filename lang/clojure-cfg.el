@@ -30,23 +30,23 @@
 
 ;; This is useful for working with camel-case tokens, like names of
 ;; Java classes (e.g. JavaClassName)
-(add-hook 'clojure-mode-hook 'subword-mode)
+;; (add-hook 'clojure-mode-hook 'subword-mode)
 
 ;; A little more syntax highlighting
 (require 'clojure-mode-extra-font-locking)
 
 ;; syntax hilighting for midje
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (setq inferior-lisp-program "lein repl")
-            (font-lock-add-keywords
-             nil
-             '(("(\\(facts?\\)"
-                (1 font-lock-keyword-face))
-               ("(\\(background?\\)"
-                (1 font-lock-keyword-face))))
-            (define-clojure-indent (fact 1))
-            (define-clojure-indent (facts 1))))
+;; (add-hook 'clojure-mode-hook
+;;           (lambda ()
+;;             (setq inferior-lisp-program "lein repl")
+;;             (font-lock-add-keywords
+;;              nil
+;;              '(("(\\(facts?\\)"
+;;                 (1 font-lock-keyword-face))
+;;                ("(\\(background?\\)"
+;;                 (1 font-lock-keyword-face))))
+;;             (define-clojure-indent (fact 1))
+;;             (define-clojure-indent (facts 1))))
 
 ;;;;;;;;;;;
 ;; Cider ;;
@@ -102,7 +102,22 @@
      (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
-     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)
 
+     (define-key cider-mode-map (kbd "C-, '") 'cider-jack-in)
+     (define-key cider-mode-map (kbd "C-, e e") 'cider-eval-last-sexp)
+     (define-key cider-mode-map (kbd "C-, e b") 'cider-eval-buffer)
+     (define-key cider-mode-map (kbd "C-, e c") 'cider-pprint-eval-last-sexp-to-comment)
+     (define-key cider-mode-map (kbd "C-, e r") 'cider-eval-last-sexp-and-replace)
+     ;; TODO - send current namespace to repl
+     (define-key cider-mode-map (kbd "C-, i") 'cider-inspect-last-result)))
 
-;;; clojure-config.el ends here
+;; TODO easy bindings for cider
+;; * view docs for var: `, h h`
+;; * jump to definition/in new window: `, gg`/`, gG`
+;; * debug [instrument function]: `, d b`
+;; * enlighten: `, T e`
+;; * prev command: `M-p`
+;; * keybindings: `C-h m`
+;; * cider repl kill command: `C-c C-c`
+;; * compile file: `C-c C-k`
