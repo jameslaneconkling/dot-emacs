@@ -28,7 +28,7 @@
 
 ;; (set-face-attribute 'default nil :font "M+ 1mn")
 ;; (set-frame-font "M+ 1mn" nil t)
-(set-frame-font "M+ 1mn 12" nil t)
+(set-frame-font "M+ 1mn 11" nil t)
 
 ;; transpose-windows
 ;; (use-package transpose-frame :ensure t)
