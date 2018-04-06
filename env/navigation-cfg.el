@@ -27,6 +27,7 @@
 (use-package projectile :ensure t)
 (use-package helm-projectile :ensure t)
 (setq projectile-enable-caching t)
+(setq helm-projectile-fuzzy-match t)
 ;; why can't the below overwrite the defaults: "C-c p f/F/p"?
 (global-set-key (kbd "C-x p f") 'helm-projectile) ;; find files in projectile project
 (global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
