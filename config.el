@@ -30,4 +30,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/personal/lang")
 (load "clojure-cfg.el")
+(load "javascript-cfg.el")
 (load "markdown-cfg.el")
