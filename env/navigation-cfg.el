@@ -8,10 +8,10 @@
 ;; helm
 (use-package helm :ensure t)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t)
 ;; (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 ;; (setq helm-mode-fuzzy-match t)
 ;; (setq helm-completion-in-region-fuzzy-match t)
-(setq helm-M-x-fuzzy-match t)
 
 ;; helm-ag
 (use-package helm-ag :ensure t) ;; must make sure `ag` is installed
@@ -26,6 +26,7 @@
 ;; projectile
 (use-package projectile :ensure t)
 (use-package helm-projectile :ensure t)
+(setq projectile-enable-caching t)
 ;; why can't the below overwrite the defaults: "C-c p f/F/p"?
 (global-set-key (kbd "C-x p f") 'helm-projectile) ;; find files in projectile project
 (global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
