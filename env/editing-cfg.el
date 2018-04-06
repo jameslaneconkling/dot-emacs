@@ -37,21 +37,3 @@
 (add-hook 'js-mode-hook (lambda () (rainbow-mode 1)))
 (add-hook 'web-mode-hook (lambda () (rainbow-mode 1)))
 (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
-
-;; tern
-;; for javascript development (move to javascript-cfg.el?)
-(use-package tern :ensure t)
-(use-package tern-auto-complete :ensure t)
-(use-package company-tern :ensure t)
-
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-(add-hook 'web-mode-hook (lambda () (tern-mode t)))
-
-(eval-after-load 'tern
-  '(progn
-     (require 'tern-auto-complete)
-     (tern-ac-setup)))
-
-(defun delete-tern-process ()
-  (interactive)
-  (delete-process "Tern"))
