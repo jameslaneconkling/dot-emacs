@@ -9,6 +9,8 @@
 (use-package magit-gh-pulls :ensure t)
 (use-package diff-hl :ensure t)
 
+(global-diff-hl-mode)
+
 (require 'magit-gh-pulls)
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
