@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/personal/env")
 (load "package-cfg.el")
 (load "editing-cfg.el")
+(load "shell-cfg.el")
 (load "navigation-cfg.el")
 (load "ui-cfg.el")
 (load "on-start-cfg.el")
