@@ -9,8 +9,9 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell evil-tutor indium neotree diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
- '(tool-bar-mode nil))
+    (git-gutter+ git-gutter-fringe git-gutter solaire-mode doom-themes exec-path-from-shell evil-tutor indium neotree diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
+ '(tool-bar-mode nil)
+ '(window-divider-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
