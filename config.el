@@ -1,6 +1,16 @@
 
 ;; ~/.emacs.d/personal/config.el
 
+;;;;;;;;;;;;;
+;; program ;;
+;;;;;;;;;;;;;
+
+(add-to-list 'load-path "~/.emacs.d/personal/program")
+(load "lint-cfg.el")
+(load "magit-cfg.el")
+(load "evil-cfg.el")
+
+
 ;;;;;;;;;
 ;; env ;;
 ;;;;;;;;;
@@ -21,12 +31,3 @@
 (add-to-list 'load-path "~/.emacs.d/personal/lang")
 (load "clojure-cfg.el")
 (load "markdown-cfg.el")
-
-
-;;;;;;;;;;;;;
-;; program ;;
-;;;;;;;;;;;;;
-
-(add-to-list 'load-path "~/.emacs.d/personal/program")
-(load "magit-cfg.el")
-(load "evil-cfg.el")
