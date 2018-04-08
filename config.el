@@ -16,6 +16,7 @@
 ;;;;;;;;;
 
 (add-to-list 'load-path "~/.emacs.d/personal/env")
+(load "kbd-cfg.el")
 (load "package-cfg.el")
 (load "editing-cfg.el")
 (load "shell-cfg.el")

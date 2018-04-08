@@ -5,13 +5,36 @@
 ;; navigation ;;
 ;;;;;;;;;;;;;;;;
 
+;; keybindings
+(general-define-key
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+  "p p" '(helm-projectile-switch-project :which-key "switch project")
+  "p f" '(helm-projectile :which-key "open file in project")
+  "p F" '(helm-projectile-find-file-in-known-projects :which-key "open file in any project")
+  "w h" '(evil-window-left :which-key "window left")
+  "w l" '(evil-window-right :which-key "window right")
+  "w k" '(evil-window-up :which-key "window up")
+  "w j" '(evil-window-down :which-key "window down")
+  "w d" '(evil-window-delete :which-key "kill window")
+  "w =" '(balance-windows :which-key "balance windows")
+  "w /" '(evil-window-vnew :which-key "new vertical window")
+  "w -" '(evil-window-new :which-key "new horizontal window")
+  "f f" '(ido-find-file :which-key "find file")
+  "b b" '(helm-buffer-list :which-key "list buffers")
+  "b e" '(list-buffers :which-key "edit buffers")
+  "b d" '(kill-this-buffer :which-key "kill buffer")
+  "SPC" '(helm-M-x :which-key "M-x")
+  ;; "." '(avy-goto-word-or-subword-1  :which-key "go to word")
+  )
+
+
 ;; helm
 (use-package helm :ensure t)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-M-x-fuzzy-match t)
-;; (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-;; (setq helm-mode-fuzzy-match t)
-;; (setq helm-completion-in-region-fuzzy-match t)
+
 
 ;; helm-ag
 (use-package helm-ag :ensure t) ;; must make sure `ag` is installed
@@ -29,9 +52,9 @@
 (setq projectile-enable-caching t)
 (setq helm-projectile-fuzzy-match t)
 ;; why can't the below overwrite the defaults: "C-c p f/F/p"?
-(global-set-key (kbd "C-x p f") 'helm-projectile) ;; find files in projectile project
-(global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
-(global-set-key (kbd "C-x p p") 'helm-projectile-switch-project) ;; switch projectile projects
+
+;; (global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
+;; (global-set-key (kbd "C-x p p") 'helm-projectile-switch-project) ;; switch projectile projects
 (projectile-global-mode)
 
 
