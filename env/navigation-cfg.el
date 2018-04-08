@@ -26,7 +26,7 @@
  "f" '(:ignore t :which-key "files")
  "f f" '(ido-find-file :which-key "find file")
  "b" '(:ignore t :which-key "buffers")
- "b b" '(helm-buffer-list :which-key "list buffers")
+ "b b" '(helm-buffers-list :which-key "list buffers")
  "b e" '(list-buffers :which-key "edit buffers")
  "b d" '(kill-this-buffer :which-key "kill buffer")
  "SPC" '(helm-M-x :which-key "M-x")
