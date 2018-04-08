@@ -38,20 +38,20 @@
   :config
   (define-key js2-mode-map (kbd "M-.") nil))
 
-(use-package tern
-  :ensure t
-  :init (add-hook 'js2-mode-hook #'tern-mode)
-  :config
-  (advice-add #'tern-project-dir :override #'core*project-root))
+;; (use-package tern
+;;   :ensure t
+;;   :init (add-hook 'js2-mode-hook #'tern-mode)
+;;   :config
+;;   (advice-add #'tern-project-dir :override #'core*project-root))
 
-(use-package company-tern
-  :ensure t
-  :config
-  (defun activate-tern-hook ()
-    "Hook for `js-mode'."
-    (set (make-local-variable 'company-backends)
-	 '((company-tern company-files))))
-  (add-hook 'js2-mode-hook 'activate-tern-hook))
+;; (use-package company-tern
+;;   :ensure t
+;;   :config
+;;   (defun activate-tern-hook ()
+;;     "Hook for `js-mode'."
+;;     (set (make-local-variable 'company-backends)
+;; 	 '((company-tern company-files))))
+;;   (add-hook 'js2-mode-hook 'activate-tern-hook))
 
 ;; Turn off js2 mode errors & warnings
 (setq js2-mode-show-parse-errors nil)

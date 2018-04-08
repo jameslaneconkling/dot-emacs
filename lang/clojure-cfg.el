@@ -99,8 +99,9 @@
 
  
 (general-evil-setup)
+;; TODO - this overwrites J (combine lines)
 (general-nvmap
- :keymaps 'clojure-mode-map
+ :keymaps '(clojure-mode-map emacs-lisp-mode-map)
  "L" 'sp-forward-sexp
  "H" '(sp-backward-sexp :which-key "backward sexp")
  "K" '(sp-backward-up-sexp :which-key "up sexp")
@@ -117,11 +118,10 @@
 ;; * cider repl kill command: `C-c C-c`
 ;; * compile file: `C-c C-k`
 (general-define-key
- :keymaps 'clojure-mode-map
+ :keymaps '(clojure-mode-map emacs-lisp-mode-map)
  :states '(normal visual insert emacs)
  :prefix ","
  :non-normal-prefix "M-,"
- ;; TODO - share lisp keys with all lisp major modes: emacs-lisp, etc.
  "d" '(kill-sexp :which-key "delete sexp")
  "y" '(sp-copy-sexp :which-key "yank sexp")
 
