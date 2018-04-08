@@ -9,6 +9,7 @@
 (general-define-key
  :states '(normal visual insert emacs)
  :prefix "SPC"
+ :keymaps '(global dired-mode-map)
  :non-normal-prefix "M-SPC"
  "p" '(:ignore t :which-key "projectile")
  "p p" '(helm-projectile-switch-project :which-key "switch project")
