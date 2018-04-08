@@ -2,6 +2,26 @@
 ;; editing ;;
 ;;;;;;;;;;;;;
 
+;; better commenting: https://stackoverflow.com/questions/9688748/emacs-comment-uncomment-current-line
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        (next-line)))
+
+
+;; key bindings
+(general-define-key
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+ "c c" '(comment-or-uncomment-region-or-line :which-key "comment"))
+
+
 ;; pair completion
 (electric-pair-mode 1)
 (setq electric-pair-pairs '((?\" . ?\")(?\{ . ?\}))) ;; include {} and "" as pairs
