@@ -19,7 +19,7 @@
  :states '(normal visual insert emacs)
  :prefix "SPC"
  :non-normal-prefix "M-SPC"
- "c c" '(comment-or-uncomment-region-or-line :which-key "comment"))
+ "c" '(comment-or-uncomment-region-or-line :which-key "comment"))
 
 
 ;; pair completion

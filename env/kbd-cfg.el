@@ -6,3 +6,5 @@
 ;;;;;;;;;;;;;;
 
 (use-package general :ensure t)
+(use-package which-key :ensure t)
+(which-key-mode)
