@@ -14,6 +14,10 @@
         (next-line)))
 
 
+;; save backup files to ~/.emacs-backups
+(setq backup-directory-alist `(("." . "~/.emacs-backups")))
+
+
 ;; key bindings
 (general-define-key
  :states '(normal visual insert emacs)
