@@ -78,8 +78,6 @@
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
 
-;; key bindings
-;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
   (interactive)
   (cider-load-current-buffer)
@@ -100,6 +98,15 @@
 (setq cider-repl-pop-to-buffer-on-connect nil)
 
  
+(general-evil-setup)
+(general-nvmap
+ :keymaps 'clojure-mode-map
+ "L" 'sp-forward-sexp
+ "H" '(sp-backward-sexp :which-key "backward sexp")
+ "K" '(sp-backward-up-sexp :which-key "up sexp")
+ "J" '(sp-down-sexp :which-key "down sexp"))
+
+
 ;; TODO easy bindings for cider
 ;; * view docs for var: `, h h`
 ;; * jump to definition/in new window: `, gg`/`, gG`
@@ -115,14 +122,13 @@
  :prefix ","
  :non-normal-prefix "M-,"
  ;; TODO - share lisp keys with all lisp major modes: emacs-lisp, etc.
- ;; TODO - find easier leader key
  "d" '(kill-sexp :which-key "delete sexp")
  "y" '(sp-copy-sexp :which-key "yank sexp")
 
- "l" '(sp-forward-sexp :which-key "forward sexp")
- "h" '(sp-backward-sexp :which-key "backward sexp")
- "k" '(sp-backward-up-sexp :which-key "up sexp")
- "j" '(sp-down-sexp :which-key "down sexp")
+ ;; "l" '(sp-forward-sexp :which-key "forward sexp")
+ ;; "h" '(sp-backward-sexp :which-key "backward sexp")
+ ;; "k" '(sp-backward-up-sexp :which-key "up sexp")
+ ;; "j" '(sp-down-sexp :which-key "down sexp")
 
  "s" '(paredit-forward-slurp-sexp :which-key "slurp")
  "S" '(paredit-backward-slurp-sexp :which-key "backward slurp")
