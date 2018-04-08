@@ -99,37 +99,7 @@
 
 (setq cider-repl-pop-to-buffer-on-connect nil)
 
-(eval-after-load 'cider
-  '(progn
-     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
-     (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
-     (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
-     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)
-
-     ;; TODO - come up w/ a better leader than C-,
-     ;; to make nav really fast, use <SPC> leader?
-     (define-key cider-mode-map (kbd "C-, '") 'cider-jack-in)
-     (define-key cider-mode-map (kbd "C-, e e") 'cider-eval-last-sexp)
-     (define-key cider-mode-map (kbd "C-, e b") 'cider-eval-buffer)
-     (define-key cider-mode-map (kbd "C-, e c") 'cider-pprint-eval-last-sexp-to-comment)
-     (define-key cider-mode-map (kbd "C-, e r") 'cider-eval-last-sexp-and-replace)
-     (define-key cider-mode-map (kbd "C-, i") 'cider-inspect-last-result)
-     ;; TODO - send current namespace to repl
-
-     (define-key cider-mode-map (kbd "C-, k") 'kill-sexp)
-     (define-key cider-mode-map (kbd "C-, y") 'sp-copy-sexp)
-
-     (define-key cider-mode-map (kbd "C-, l") 'sp-forward-sexp)
-     (define-key cider-mode-map (kbd "C-, h") 'sp-backward-sexp)
-     (define-key cider-mode-map (kbd "C-, k") 'sp-backward-up-sexp)
-     (define-key cider-mode-map (kbd "C-, j") 'sp-down-sexp)
-
-     (define-key cider-mode-map (kbd "C-, s") 'paredit-forward-slurp-sexp)
-     (define-key cider-mode-map (kbd "C-, S") 'paredit-backward-slurp-sexp)
-     (define-key cider-mode-map (kbd "C-, b") 'paredit-forward-barf-sexp)
-     (define-key cider-mode-map (kbd "C-, B") 'paredit-backward-barf-sexp)
-     (define-key cider-mode-map (kbd "C-, w") 'paredit-wrap-sexp)))
-
+ 
 ;; TODO easy bindings for cider
 ;; * view docs for var: `, h h`
 ;; * jump to definition/in new window: `, gg`/`, gG`
@@ -139,3 +109,35 @@
 ;; * keybindings: `C-h m`
 ;; * cider repl kill command: `C-c C-c`
 ;; * compile file: `C-c C-k`
+(general-define-key
+ :keymaps 'clojure-mode-map
+ :states '(normal visual insert emacs)
+ :prefix ","
+ :non-normal-prefix "M-,"
+ ;; TODO - share lisp keys with all lisp major modes: emacs-lisp, etc.
+ ;; TODO - find easier leader key
+ "d" '(kill-sexp :which-key "delete sexp")
+ "y" '(sp-copy-sexp :which-key "yank sexp")
+
+ "l" '(sp-forward-sexp :which-key "forward sexp")
+ "h" '(sp-backward-sexp :which-key "backward sexp")
+ "k" '(sp-backward-up-sexp :which-key "up sexp")
+ "j" '(sp-down-sexp :which-key "down sexp")
+
+ "s" '(paredit-forward-slurp-sexp :which-key "slurp")
+ "S" '(paredit-backward-slurp-sexp :which-key "backward slurp")
+ "b" '(paredit-forward-barf-sexp :which-key "barf")
+ "B" '(paredit-backward-barf-sexp :which-key "backward barf")
+ "w" '(paredit-wrap-sexp :which-key "wrap")
+
+ "'" '(cider-jack-in :which-key "cider jack in")
+ "e" '(:ignore t :which-key "eval")
+ "e b" '(cider-eval-buffer :which-key "eval buffer")
+ "e e" '(cider-eval-last-sexp :which-key "eval last sexp")
+ "e c" '(cider-pprint-eval-last-sexp-to-comment :which-key "eval last sexp to comment")
+ "e r" '(cider-eval-last-sexp-and-replace :which-key "eval last sexp and replace")
+ "r" '(cider-refresh :which-key "cider refresh")
+ "i" '(cider-inspect-last-result :which-key "cider inspect last result")
+ ;; TODO - send current namespace to repl
+ "u" '(cider-user-ns :which-key "cider user namespace")
+ "v" '(cider-start-http-server :which-key "start cider server"))
