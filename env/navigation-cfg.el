@@ -38,7 +38,7 @@
   )
 
 (general-define-key
- :states '(motion normal visual insert emacs)
+ :states '(motion normal visual emacs)
  :keymaps '(global dired-mode-map)
  "<tab>" 'previous-buffer
  "<S-tab>" 'next-buffer)
