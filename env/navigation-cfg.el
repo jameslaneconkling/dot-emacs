@@ -26,6 +26,9 @@
  "f" '(:ignore t :which-key "files")
  "f f" '(ido-find-file :which-key "list files")
  "f e" '(dired :which-key "edit files")
+ "s" '(:ignore t :which-key "search")
+ "s s" '(helm-do-ag-project-root :which-key "search project")
+ "s b" '(helm-do-ag-buffers :which-key "search project")
  "b" '(:ignore t :which-key "buffers")
  "b b" '(helm-buffers-list :which-key "list buffers")
  "b e" '(list-buffers :which-key "edit buffers")
@@ -49,7 +52,7 @@
 
 ;; helm-ag
 (use-package helm-ag :ensure t) ;; must make sure `ag` is installed
-(global-set-key (kbd "C-c C-f") 'helm-do-ag-project-root) ;; ag text search current project
+(setq helm-ag-insert-at-point 'word)
 
 
 ;; projectile
@@ -57,10 +60,6 @@
 (use-package helm-projectile :ensure t)
 (setq projectile-enable-caching t)
 (setq helm-projectile-fuzzy-match t)
-;; why can't the below overwrite the defaults: "C-c p f/F/p"?
-
-;; (global-set-key (kbd "C-x p F") 'helm-projectile-find-file-in-known-projects) ;; find files across all projects
-;; (global-set-key (kbd "C-x p p") 'helm-projectile-switch-project) ;; switch projectile projects
 (projectile-global-mode)
 
 
