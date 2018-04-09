@@ -5,7 +5,6 @@
 ;; navigation ;;
 ;;;;;;;;;;;;;;;;
 
-;; keybindings
 (general-define-key
  :states '(normal visual insert emacs)
  :prefix "SPC"
@@ -35,6 +34,12 @@
  ;; "." '(avy-goto-word-or-subword-1  :which-key "go to word")
   )
 
+(general-define-key
+ :states '(motion normal visual insert emacs)
+ :keymaps '(global dired-mode-map)
+ "<tab>" 'previous-buffer
+ "<S-tab>" 'next-buffer)
+
 
 ;; helm
 (use-package helm :ensure t)
@@ -45,11 +50,6 @@
 ;; helm-ag
 (use-package helm-ag :ensure t) ;; must make sure `ag` is installed
 (global-set-key (kbd "C-c C-f") 'helm-do-ag-project-root) ;; ag text search current project
-
-
-;; set pageup/pagedown to goto next buffers
-(global-set-key (kbd "<next>") 'next-buffer)
-(global-set-key (kbd "<prior>") 'previous-buffer)
 
 
 ;; projectile
