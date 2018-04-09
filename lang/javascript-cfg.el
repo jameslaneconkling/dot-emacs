@@ -4,18 +4,26 @@
 ;;;;;;;;;;;;;;;;
 ;; javascript ;;
 ;;;;;;;;;;;;;;;;
-;; (use-package emmet-mode
-;;   :ensure t
-;;   :init
-;;   (add-hook 'js2-mode-hook #'emmet-mode)
-;;   :config
-;;   (setq emmet-move-cursor-between-quotes t)
-;;   (setq emmet-expand-jsx-className? t))
+
+(general-evil-setup)
+(general-define-key
+ :keymaps 'js-mode-map
+ :states '(normal visual insert emacs)
+ :prefix ","
+ :non-normal-prefix "M-,"
+ "d" '(js2r-kill :which-key "delete")
+ "s" '(js2r-forward-slurp :which-key "slurp")
+ "b" '(js2r-forward-barf :which-key "barf")
+ "w" '(paredit-wrap-sexp :which-key "wrap")
+ "f" '(:ignore t :which-key "format")
+ "f r" '(json-pretty-print :which-key "format region")
+ "f b" '(json-pretty-print-buffer :which-key "format buffer")
+ )
 
 
 (use-package js2-mode
   :ensure t
-  :mode ("\\.js$" . js2-mode) 
+  :mode ("\\.js$" . js2-mode)
   :config
   (setq js-indent-level 2
 	js2-basic-offset 2
@@ -37,6 +45,10 @@
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   :config
   (define-key js2-mode-map (kbd "M-.") nil))
+
+(use-package json-reformat :ensure t)
+(setq json-reformat:indent-width 2)
+
 
 ;; (use-package tern
 ;;   :ensure t
