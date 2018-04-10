@@ -4,6 +4,7 @@
 ;;;;;;;;
 ;; ui ;;
 ;;;;;;;;
+
 (setq inhibit-startup-screen t
  ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
@@ -28,6 +29,12 @@
 
 ;; (set-face-attribute 'default nil :font "M+ 1mn")
 (set-frame-font "M+ 1mn 11" nil t)
+
+
+;; powerline
+(use-package powerline :ensure t)
+(powerline-vim-theme)
+
 
 ;; transpose-windows
 ;; (use-package transpose-frame :ensure t)
