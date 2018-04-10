@@ -67,6 +67,7 @@
       (delete-char sgml-basic-offset))))
 (advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
 
+(setq css-indent-offset 2)
 
 ;; skewer repl
 (use-package skewer-mode :ensure t)
