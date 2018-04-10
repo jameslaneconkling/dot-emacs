@@ -15,9 +15,9 @@
         (next-line)))
 
 
-;; save backup files to ~/.emacs-backups
+;; save backup and autosave files to ~/.emacs-backups
 (setq backup-directory-alist `(("." . "~/.emacs-backups")))
-
+(setq auto-save-file-name-transforms `(("." . "~/.emacs-autosave")))
 
 ;; key bindings
 (general-define-key
