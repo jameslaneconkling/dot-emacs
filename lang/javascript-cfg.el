@@ -19,6 +19,14 @@
  "f j" '(:ignore t :which-key "format json")
  "f j r" '(json-pretty-print :which-key "format region")
  "f j b" '(json-pretty-print-buffer :which-key "format buffer")
+
+ "'" '(run-skewer :which-key "jack in")
+ "r" '(skewer-repl :which-key "repl")
+ "e" '(:ignore t :which-key "eval")
+ "e b" '(skewer-load-buffer :which-key "eval buffer")
+ "e e" '(skewer-eval-last-expression :which-key "eval last exp")
+ "e d" '(skewer-eval-defun :which-key "eval last definition")
+ "e p" '(skewer-eval-print-last-expression :which-key "eval last exp and print")
  )
 
 
@@ -58,6 +66,14 @@
     (when (looking-at-p "^ +\/?> *$")
       (delete-char sgml-basic-offset))))
 (advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
+
+
+;; skewer repl
+(use-package skewer-mode :ensure t)
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
 
 ;; (use-package tern
 ;;   :ensure t
