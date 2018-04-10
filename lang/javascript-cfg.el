@@ -16,8 +16,11 @@
  "b" '(js2r-forward-barf :which-key "barf")
  "w" '(paredit-wrap-sexp :which-key "wrap")
  "f" '(:ignore t :which-key "format")
- "f r" '(json-pretty-print :which-key "format region")
- "f b" '(json-pretty-print-buffer :which-key "format buffer")
+ "f j" '(:ignore t :which-key "format json")
+ "f j r" '(json-pretty-print :which-key "format region")
+ "f j b" '(json-pretty-print-buffer :which-key "format buffer")
+ "g" '(:ignore t :which-key "goto")
+ "g g" '(evil-goto-definition :which-key "goto definition")
  )
 
 
@@ -49,6 +52,14 @@
 (use-package json-reformat :ensure t)
 (setq json-reformat:indent-width 2)
 
+;; fix jsx indentation
+(defun js-jsx-indent-line-align-closing-bracket ()
+  "Workaround 'sgml-mode' and align closing bracket with opening bracket."
+  (save-excursion
+    (beginning-of-line)
+    (when (looking-at-p "^ +\/?> *$")
+      (delete-char sgml-basic-offset))))
+(advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
 
 ;; (use-package tern
 ;;   :ensure t
@@ -69,13 +80,6 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
-
-;; (use-package js2-mode :ensure t)
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
-
-;; ;; Better imenu
-;; (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
 (use-package js2-refactor
   :ensure t
