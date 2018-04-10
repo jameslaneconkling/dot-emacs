@@ -19,8 +19,6 @@
  "f j" '(:ignore t :which-key "format json")
  "f j r" '(json-pretty-print :which-key "format region")
  "f j b" '(json-pretty-print-buffer :which-key "format buffer")
- "g" '(:ignore t :which-key "goto")
- "g g" '(evil-goto-definition :which-key "goto definition")
  )
 
 

@@ -14,7 +14,7 @@
  "p p" '(helm-projectile-switch-project :which-key "switch project")
  "p f" '(helm-projectile :which-key "open file in project")
  "p F" '(helm-projectile-find-file-in-known-projects :which-key "open file in any project")
- "p d b" '(projectile-kill-buffers :which-key "delete project buffers")
+ "p d" '(projectile-kill-buffers :which-key "delete project buffers")
  "w" '(:ignore t :which-key "windows")
  "w h" '(evil-window-left :which-key "window left")
  "w l" '(evil-window-right :which-key "window right")
@@ -35,6 +35,16 @@
  "b b" '(helm-buffers-list :which-key "list buffers")
  "b e" '(list-buffers :which-key "edit buffers")
  "b d" '(kill-this-buffer :which-key "delete buffer")
+ "g" '(:ignore t :which-key "goto")
+ "g g" '(evil-goto-definition :which-key "goto definition")
+ "g w" '(avy-goto-word-1 :which-key "goto word")
+ "g l" '(avy-goto-line :which-key "goto line")
+ "g d" '(:ignore t :which-key "goto delete")
+ "g d r" '(avy-kill-region :which-key "goto delete region")
+ "g d l" '(avy-kill-whole-line :which-key "goto delete line")
+ "g y" '(:ignore t :which-key "goto yank")
+ "g y r" '(avy-kill-ring-save-region :which-key "goto yank region")
+ "g y l" '(avy-kill-ring-save-whole-line :which-key "goto yank line")
  "SPC" '(helm-M-x :which-key "M-x")
  ;; "." '(avy-goto-word-or-subword-1  :which-key "go to word")
   )
@@ -44,6 +54,9 @@
  :keymaps '(global dired-mode-map)
  "<tab>" 'previous-buffer
  "<S-tab>" 'next-buffer)
+
+;; avy
+(use-package avy :ensure t)
 
 
 ;; helm
