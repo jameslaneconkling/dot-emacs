@@ -32,6 +32,8 @@
 
 ;; overwrite highlighted text
 (delete-selection-mode 1)
+(fset 'evil-visual-update-x-selection 'ignore)
+
 
 ;; expand region
 (use-package expand-region :ensure t)
