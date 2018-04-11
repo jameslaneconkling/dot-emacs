@@ -38,9 +38,12 @@
 
 
 ;; allow flycheck to use locally installed eslint
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
 (use-package add-node-modules-path
   :ensure t
   :config
   (add-hook 'js-mode-hook #'add-node-modules-path)
   (add-hook 'js2-mode-hook #'add-node-modules-path)
+  (add-hook 'web-mode-hook #'add-node-modules-path)
   (add-hook 'rjsx-mode-hook #'add-node-modules-path))

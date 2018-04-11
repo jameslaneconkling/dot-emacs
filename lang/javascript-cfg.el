@@ -43,9 +43,26 @@
   (add-hook 'js2-mode-hook #'company-mode)
   (define-key js-mode-map (kbd "M-.") nil))
 
-(use-package rjsx-mode
+;; use web-mode for jsx - unfortunately rjsx indentation is borken
+;; (use-package rjsx-mode
+;;   :ensure t
+;;   :mode ("\\.jsx$\\'" . rjsx-mode))
+;; (defun js-jsx-indent-line-align-closing-bracket ()
+;;   "Workaround 'sgml-mode' and align closing bracket with opening bracket."
+;;   (save-excursion
+;;     (beginning-of-line)
+;;     (when (looking-at-p "^ +\/?> *$")
+;;       (delete-char sgml-basic-offset))))
+;; (advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
+
+(use-package web-mode
   :ensure t
-  :mode ("\\.jsx$\\'" . rjsx-mode))
+  :config 
+  (setq web-mode-markup-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-auto-quoting nil)
+  (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode)))
 
 (use-package xref-js2
   :ensure t
@@ -58,14 +75,6 @@
 (use-package json-reformat :ensure t)
 (setq json-reformat:indent-width 2)
 
-;; fix jsx indentation
-(defun js-jsx-indent-line-align-closing-bracket ()
-  "Workaround 'sgml-mode' and align closing bracket with opening bracket."
-  (save-excursion
-    (beginning-of-line)
-    (when (looking-at-p "^ +\/?> *$")
-      (delete-char sgml-basic-offset))))
-(advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
 
 (setq css-indent-offset 2)
 
