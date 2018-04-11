@@ -25,11 +25,15 @@
  :prefix "SPC"
  :non-normal-prefix "M-SPC"
  "/" '(comment-or-uncomment-region-or-line :which-key "comment")
+ "=" '(er/expand-region :which-key "expand region")
  "e" '(:ignore t :which-key "errors")
  "e l" '(flycheck-list-errors :which-key "list errors")
  "e n" '(flycheck-next-error :which-key "next error")
  "e N" '(flycheck-previous-error :which-key "previous error"))
 
+
+;; expand region
+(use-package expand-region :ensure t)
 
 ;; pair completion
 (electric-pair-mode 1)
