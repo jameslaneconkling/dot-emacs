@@ -33,7 +33,7 @@
 
 ;; powerline
 (use-package powerline :ensure t)
-(powerline-vim-theme)
+(powerline-default-theme)
 
 
 ;; transpose-windows

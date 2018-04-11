@@ -7,7 +7,7 @@
 
 (general-evil-setup)
 (general-define-key
- :keymaps 'js-mode-map
+ :keymaps '(js-mode-map web-mode-map)
  :states '(normal visual insert emacs)
  :prefix ","
  :non-normal-prefix "M-,"
