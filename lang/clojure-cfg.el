@@ -27,6 +27,12 @@
 (add-hook 'clojure-mode 'smartparens)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(set-face-background 'show-paren-match "#402D2E")
+(set-face-foreground 'show-paren-match "#CC6666")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
 
 ;; This is useful for working with camel-case tokens, like names of
 ;; Java classes (e.g. JavaClassName)
@@ -102,10 +108,10 @@
 ;; TODO - this overwrites J (combine lines)
 (general-nvmap
  :keymaps '(clojure-mode-map emacs-lisp-mode-map)
- "L" 'sp-forward-sexp
- "H" '(sp-backward-sexp :which-key "backward sexp")
- "K" '(sp-backward-up-sexp :which-key "up sexp")
- "J" '(sp-down-sexp :which-key "down sexp"))
+ "C-l" 'sp-forward-sexp
+ "C-h" '(sp-backward-sexp :which-key "backward sexp")
+ "C-k" '(sp-backward-up-sexp :which-key "up sexp")
+ "C-j" '(sp-down-sexp :which-key "down sexp"))
 
 
 ;; TODO easy bindings for cider

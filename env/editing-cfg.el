@@ -5,19 +5,19 @@
 
 ;; better commenting: https://stackoverflow.com/questions/9688748/emacs-comment-uncomment-current-line
 (defun comment-or-uncomment-region-or-line ()
-    "Comments or uncomments the region or the current line if there's no active region."
-    (interactive)
-    (let (beg end)
-        (if (region-active-p)
-            (setq beg (region-beginning) end (region-end))
-            (setq beg (line-beginning-position) end (line-end-position)))
-        (comment-or-uncomment-region beg end)
-        (next-line)))
+  "Comments or uncomments the region or the current line if there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+      (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)
+    (next-line)))
 
 
 ;; save backup and autosave files to ~/.emacs-backups
 (setq backup-directory-alist `(("." . "~/.emacs-backups")))
-(setq auto-save-file-name-transforms `(("." . "~/.emacs-autosave")))
+;; (setq auto-save-file-name-transforms `(("." . "~/.emacs-autosave")))
 
 ;; key bindings
 (general-define-key
