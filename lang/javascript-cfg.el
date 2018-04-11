@@ -27,6 +27,15 @@
  "e e" '(skewer-eval-last-expression :which-key "eval last exp")
  "e d" '(skewer-eval-defun :which-key "eval last definition")
  "e p" '(skewer-eval-print-last-expression :which-key "eval last exp and print")
+
+ "m" '(:ignore t :which-key "html markup")
+ "m r" '(web-mode-element-rename :which-key "rename")
+ "m d" '(web-mode-element-kill :which-key "delete")
+ "m w" '(web-mode-element-wrap :which-key "wrap")
+ "m l" '(web-mode-element-sibling-next :which-key "next element")
+ "m h" '(web-mode-element-sibling-previous :which-key "previous element")
+ "m k" '(web-mode-element-parent :which-key "parent element")
+ "m j" '(web-mode-element-child :which-key "child element")
  )
 
 
@@ -63,6 +72,14 @@
         web-mode-enable-auto-quoting nil)
   (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode)))
+
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
+(eval-after-load "web-mode"
+  '(set-face-background 'web-mode-current-element-highlight-face "#402D2E"))
+(eval-after-load "web-mode"
+  '(set-face-foreground 'web-mode-current-element-highlight-face "#CC6666"))
+
 
 (use-package xref-js2
   :ensure t
