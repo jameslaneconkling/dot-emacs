@@ -14,7 +14,6 @@
     (comment-or-uncomment-region beg end)
     (next-line)))
 
-
 ;; save backup and autosave files to ~/.emacs-backups
 (setq backup-directory-alist `(("." . "~/.emacs-backups")))
 ;; (setq auto-save-file-name-transforms `(("." . "~/.emacs-autosave")))
@@ -31,6 +30,8 @@
  "e n" '(flycheck-next-error :which-key "next error")
  "e N" '(flycheck-previous-error :which-key "previous error"))
 
+;; overwrite highlighted text
+(delete-selection-mode 1)
 
 ;; expand region
 (use-package expand-region :ensure t)
@@ -49,16 +50,6 @@
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.c/ac-dict")
 (ac-config-default)
-
-;; syntax-checking
-;; (require 'flycheck)
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-;; set warning color
-;; (cw|2.5.2017) actually this is p distracting, maybe softer
-;; colors in the future...
-;; (set-face-attribute 'flycheck-warning nil
-;;                     :foreground "yellow"
-;;                     :background "red")
 
 ;; regexp-builder tweaks
 (use-package re-builder :ensure t)
