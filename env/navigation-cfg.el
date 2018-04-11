@@ -22,8 +22,8 @@
  "w j" '(evil-window-down :which-key "window down")
  "w d" '(evil-window-delete :which-key "delete window")
  "w =" '(balance-windows :which-key "balance windows")
- "w /" '(evil-window-vnew :which-key "new vertical window")
- "w -" '(evil-window-new :which-key "new horizontal window")
+ "w /" '((lambda () (interactive)(split-window-horizontally) (other-window 1)) :which-key "new window right")
+ "w -" '((lambda () (interactive)(split-window-vertically) (other-window 1)) :which-key "new window below")
  "f" '(:ignore t :which-key "files")
  "f f" '(ido-find-file :which-key "list files")
  "f e" '(dired :which-key "edit files")
@@ -46,7 +46,6 @@
  "g y r" '(avy-kill-ring-save-region :which-key "goto yank region")
  "g y l" '(avy-kill-ring-save-whole-line :which-key "goto yank line")
  "SPC" '(helm-M-x :which-key "M-x")
- ;; "." '(avy-goto-word-or-subword-1  :which-key "go to word")
   )
 
 (general-define-key
