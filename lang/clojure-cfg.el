@@ -128,6 +128,7 @@
  :states '(normal visual insert emacs)
  :prefix ","
  :non-normal-prefix "M-,"
+ ;; TODO - command for docs (aprops?)
  "d" '(kill-sexp :which-key "delete sexp")
  "y" '(sp-copy-sexp :which-key "yank sexp")
 
@@ -148,7 +149,7 @@
  "e e" '(cider-eval-last-sexp :which-key "eval last sexp")
  "e c" '(cider-pprint-eval-last-sexp-to-comment :which-key "eval last sexp to comment")
  "e r" '(cider-eval-last-sexp-and-replace :which-key "eval last sexp and replace")
- "r" '(cider-refresh :which-key "cider refresh")
+ "r" '(cider-restart :which-key "cider restart")
  "i" '(cider-inspect-last-result :which-key "cider inspect last result")
  ;; TODO - send current namespace to repl
  "u" '(cider-user-ns :which-key "cider user namespace")
