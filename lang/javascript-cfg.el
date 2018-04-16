@@ -15,10 +15,6 @@
  "s" '(js2r-forward-slurp :which-key "slurp")
  "b" '(js2r-forward-barf :which-key "barf")
  "w" '(paredit-wrap-sexp :which-key "wrap")
- "f" '(:ignore t :which-key "format")
- "f j" '(:ignore t :which-key "format json")
- "f j r" '(json-pretty-print :which-key "format region")
- "f j b" '(json-pretty-print-buffer :which-key "format buffer")
 
  "'" '(run-skewer :which-key "jack in")
  "r" '(skewer-repl :which-key "repl")
@@ -28,7 +24,11 @@
  "e d" '(skewer-eval-defun :which-key "eval last definition")
  "e p" '(skewer-eval-print-last-expression :which-key "eval last exp and print")
 
- "m" '(:ignore t :which-key "html markup")
+ ;; TODO - only bind for json-mode
+ "f" '(:ignore t :which-key "format json")
+ "f r" '(json-pretty-print :which-key "format region")
+ "f b" '(json-pretty-print-buffer :which-key "format buffer") "m" '(:ignore t :which-key "html markup")
+
  "m r" '(web-mode-element-rename :which-key "rename")
  "m d" '(web-mode-element-kill :which-key "delete")
  "m w" '(web-mode-element-wrap :which-key "wrap")
@@ -37,7 +37,6 @@
  "m k" '(web-mode-element-parent :which-key "parent element")
  "m j" '(web-mode-element-child :which-key "child element")
  )
-
 
 (use-package js2-mode
   :ensure t
@@ -52,26 +51,26 @@
   (add-hook 'js2-mode-hook #'company-mode)
   (define-key js-mode-map (kbd "M-.") nil))
 
-;; use web-mode for jsx - unfortunately rjsx indentation is borken
-;; (use-package rjsx-mode
-;;   :ensure t
-;;   :mode ("\\.jsx$\\'" . rjsx-mode))
-;; (defun js-jsx-indent-line-align-closing-bracket ()
-;;   "Workaround 'sgml-mode' and align closing bracket with opening bracket."
-;;   (save-excursion
-;;     (beginning-of-line)
-;;     (when (looking-at-p "^ +\/?> *$")
-;;       (delete-char sgml-basic-offset))))
-;; (advice-add #'js-jsx-indent-line :after #'js-jsx-indent-line-align-closing-bracket)
 
 (use-package web-mode
   :ensure t
-  :config 
+  :mode ("\\.jsx$" . web-mode)
+  :config
   (setq web-mode-markup-indent-offset 2
         web-mode-code-indent-offset 2
-        web-mode-enable-auto-quoting nil)
+        web-mode-enable-auto-quoting nil
+        web-mode-enable-auto-indentation t)
   (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
-  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode)))
+  ;; (add-to-list 'auto-mode-alist '("\\.jsx$\\'" . web-mode))
+  )
+
+
+(use-package json-mode
+  :ensure t
+  :mode ("\\.json$" . json-mode))
+(use-package json-reformat :ensure t)
+(setq json-reformat:indent-width 2)
+
 
 (setq web-mode-enable-current-element-highlight t)
 (setq web-mode-enable-current-column-highlight t)
@@ -88,9 +87,6 @@
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   :config
   (define-key js2-mode-map (kbd "M-.") nil))
-
-(use-package json-reformat :ensure t)
-(setq json-reformat:indent-width 2)
 
 
 (setq css-indent-offset 2)

@@ -45,5 +45,4 @@
   :config
   (add-hook 'js-mode-hook #'add-node-modules-path)
   (add-hook 'js2-mode-hook #'add-node-modules-path)
-  (add-hook 'web-mode-hook #'add-node-modules-path)
-  (add-hook 'rjsx-mode-hook #'add-node-modules-path))
+  (add-hook 'web-mode-hook #'add-node-modules-path))
