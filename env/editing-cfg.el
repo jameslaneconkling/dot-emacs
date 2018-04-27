@@ -28,7 +28,9 @@
  "e" '(:ignore t :which-key "errors")
  "e l" '(flycheck-list-errors :which-key "list errors")
  "e n" '(flycheck-next-error :which-key "next error")
- "e N" '(flycheck-previous-error :which-key "previous error"))
+ "e N" '(flycheck-previous-error :which-key "previous error")
+
+ "y" '(helm-show-kill-ring :which-key "kill-ring"))
 
 ;; overwrite highlighted text
 (delete-selection-mode 1)
