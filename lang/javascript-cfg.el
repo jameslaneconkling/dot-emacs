@@ -16,13 +16,13 @@
  "b" '(js2r-forward-barf :which-key "barf")
  "w" '(paredit-wrap-sexp :which-key "wrap")
 
- "'" '(run-skewer :which-key "jack in")
- "r" '(skewer-repl :which-key "repl")
+ "'" '(indium-run-node :which-key "jack in")
+ "r" '(indium-restart-node :which-key "repl")
  "e" '(:ignore t :which-key "eval")
- "e b" '(skewer-load-buffer :which-key "eval buffer")
- "e e" '(skewer-eval-last-expression :which-key "eval last exp")
- "e d" '(skewer-eval-defun :which-key "eval last definition")
- "e p" '(skewer-eval-print-last-expression :which-key "eval last exp and print")
+ "e b" '(indium-eval-buffer :which-key "eval buffer")
+ "e r" '(indium-eval-region :which-key "eval region")
+ "e e" '(indium-eval-last-node :which-key "eval prev exp")
+ "e d" '(indium-eval-defun :which-key "eval definition")
 
  ;; TODO - only bind for json-mode
  "f" '(:ignore t :which-key "format json")
@@ -92,10 +92,10 @@
 (setq css-indent-offset 2)
 
 ;; skewer repl
-(use-package skewer-mode :ensure t)
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
+;; (use-package skewer-mode :ensure t)
+;; (add-hook 'js2-mode-hook 'skewer-mode)
+;; (add-hook 'css-mode-hook 'skewer-css-mode)
+;; (add-hook 'html-mode-hook 'skewer-html-mode)
 
 
 ;; (use-package tern
@@ -129,7 +129,10 @@
   (define-key js2-mode-map (kbd "C-k") #'js2r-kill))
 
 
-;; (use-package indium :ensure t)
+(use-package indium
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook #'indium-interaction-mode))
 
 ;; tern
 ;; (use-package tern :ensure t)
