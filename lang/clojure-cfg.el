@@ -142,6 +142,7 @@
  "b" '(paredit-forward-barf-sexp :which-key "barf")
  "B" '(paredit-backward-barf-sexp :which-key "backward barf")
  "w" '(paredit-wrap-sexp :which-key "wrap")
+ "t" '(sp-transpose-sexp :which-key "transpose")
 
  "'" '(cider-jack-in :which-key "cider jack in")
  "e" '(:ignore t :which-key "eval")
