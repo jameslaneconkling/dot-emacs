@@ -5,11 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(line-number-mode nil)
+ '(line-number-mode t)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (json-mode web-mode expand-region skewer-mode skewer powerline avy json-reformat general add-node-modules-path flycheck web-beautify emmet-mode xref-js2 js2-refactor git-gutter+ git-gutter-fringe git-gutter solaire-mode doom-themes exec-path-from-shell evil-tutor indium neotree diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
+    (eldoc-eval evil-anzu json-mode web-mode expand-region skewer-mode skewer powerline avy json-reformat general add-node-modules-path flycheck web-beautify emmet-mode xref-js2 js2-refactor git-gutter+ git-gutter-fringe git-gutter solaire-mode doom-themes exec-path-from-shell evil-tutor indium neotree diff-hl magit-gh-pulls magit helm-projectile projectile markdown-mode helm-ag helm ido-completing-read+ smartparens rainbow-delimiters paredit cider clojure-mode-extra-font-locking clojure-mode aggressive-indent zenburn-theme company-tern tern-auto-complete tern rainbow-mode auto-complete use-package evil-visual-mark-mode)))
  '(tool-bar-mode nil)
  '(window-divider-mode t))
 (custom-set-faces
