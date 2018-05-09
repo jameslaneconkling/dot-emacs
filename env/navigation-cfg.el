@@ -4,11 +4,14 @@
 ;;;;;;;;;;;;;;;;
 ;; navigation ;;
 ;;;;;;;;;;;;;;;;
+(general-def
+ 'motion
+ "SPC" nil)
 
 (general-define-key
- :states '(normal visual insert emacs)
+ :states '(normal visual insert emacs motion)
  :prefix "SPC"
- :keymaps '(global dired-mode-map)
+ :keymaps '(global dired-mode-map Buffer-menu-mode-map)
  :non-normal-prefix "M-SPC"
  "p" '(:ignore t :which-key "projectile")
  "p p" '(helm-projectile-switch-project :which-key "switch project")
