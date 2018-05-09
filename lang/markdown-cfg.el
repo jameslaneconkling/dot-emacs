@@ -7,4 +7,5 @@
 
 (use-package markdown-mode :ensure t)
 
-(add-hook 'markdown-mode-hook 'toggle-truncate-lines)
+;; (add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
+;; (add-hook 'markdown-mode-hook 'toggle-truncate-lines)
