@@ -25,12 +25,15 @@
  :non-normal-prefix "M-SPC"
  "/" '(comment-or-uncomment-region-or-line :which-key "comment")
  "=" '(er/expand-region :which-key "expand region")
- "e" '(:ignore t :which-key "errors")
- "e l" '(flycheck-list-errors :which-key "list errors")
- "e n" '(flycheck-next-error :which-key "next error")
- "e N" '(flycheck-previous-error :which-key "previous error")
+ "l" '(:ignore t :which-key "lint")
+ "l l" '(flycheck-list-errors :which-key "list errors")
+ "l n" '(flycheck-next-error :which-key "next error")
+ "l N" '(flycheck-previous-error :which-key "previous error")
 
- "y" '(helm-show-kill-ring :which-key "kill-ring"))
+ "e" '(:ignore t :which-key "edit")
+ "e p" '(helm-show-kill-ring :which-key "put from kill-ring")
+ "e r" '(anzu-query-replace-regexp :which-key "replace")
+ )
 
 ;; overwrite highlighted text
 (delete-selection-mode 1)
@@ -65,3 +68,8 @@
 (add-hook 'js-mode-hook (lambda () (rainbow-mode 1)))
 (add-hook 'web-mode-hook (lambda () (rainbow-mode 1)))
 (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
+
+;; anzu for smart find/replace
+(use-package evil-anzu :ensure t)
+(with-eval-after-load 'evil
+  (require 'evil-anzu))
