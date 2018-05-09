@@ -21,6 +21,8 @@
 * multi cursors
 * python language support
 * word-wrap for markdown mode
+* [anzu](https://github.com/syohex/emacs-evil-anzu)
+  - add `e` prefix for edit, and put flycheck stuff (formerly `error`) under `l` for lint
 
 
 # CONFIGURE
@@ -42,3 +44,12 @@
 # INVESTIGATE
 * prelude (smart defaults?)
 * https://github.com/emacs-tw/awesome-emacs
+
+# Configs
+- [doom](https://github.com/hlissner/doom-emacs)
+- [sam](https://github.com/sam217pa/emacs-config)
+- [rakanalh](https://github.com/rakanalh/dotemacs)
+- [wasamasa](https://github.com/wasamasa/dotemacs)
+
+# Resources
+- [awesome-emacs](https://github.com/emacs-tw/awesome-emacs)
