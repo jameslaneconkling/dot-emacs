@@ -40,7 +40,7 @@
 
 (use-package js2-mode
   :ensure t
-  :mode ("\\.js$" . js2-mode)
+  :mode ("\\.[j|t]s$" . js2-mode)
   :config
   (setq js-indent-level 2
 	js2-basic-offset 2
@@ -54,7 +54,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.jsx$" . web-mode)
+  :mode ("\\.[j|t]sx$" . web-mode)
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-code-indent-offset 2
