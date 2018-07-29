@@ -4,7 +4,6 @@
 
 
 # ADD
-* [x] powerline
 * [x] flycheck
 * [x] avy go-to-word
 * [x] general
@@ -12,17 +11,21 @@
 * [x] which key
 * [x] expand-region
 * [x] code folding
+* [x] [anzu](https://github.com/syohex/emacs-evil-anzu)
+  - [x] add `e` prefix for edit, and put flycheck stuff (formerly `error`) under `l` for lint
+  - anzu only checks from cursor to end of document
 * javascript
   * [x] linting
   * [x] correct indentation for jsx
   * [x] manage indentation after `{}` in jsx
   * repl (Indium)
   * autocompletion/tern
+* powerline
 * multi cursors
 * python language support
 * word-wrap for markdown mode
-* [anzu](https://github.com/syohex/emacs-evil-anzu)
-  - add `e` prefix for edit, and put flycheck stuff (formerly `error`) under `l` for lint
+* yaml minor mode
+* typescript mode
 
 
 # CONFIGURE
