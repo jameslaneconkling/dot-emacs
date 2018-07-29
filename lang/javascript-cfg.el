@@ -11,10 +11,15 @@
  :states '(normal visual insert emacs)
  :prefix ","
  :non-normal-prefix "M-,"
- "d" '(js2r-kill :which-key "delete")
- "s" '(js2r-forward-slurp :which-key "slurp")
- "b" '(js2r-forward-barf :which-key "barf")
+ "d" '(kill-sexp :which-key "delete sexp")
+ "y" '(sp-copy-sexp :which-key "yank sexp")
+
+ "s" '(paredit-forward-slurp-sexp :which-key "slurp")
+ "S" '(paredit-backward-slurp-sexp :which-key "backward slurp")
+ "b" '(paredit-forward-barf-sexp :which-key "barf")
+ "B" '(paredit-backward-barf-sexp :which-key "backward barf")
  "w" '(paredit-wrap-sexp :which-key "wrap")
+ "t" '(sp-transpose-sexp :which-key "transpose")
 
  "'" '(indium-run-node :which-key "jack in")
  "r" '(indium-restart-node :which-key "repl")
