@@ -11,6 +11,7 @@
 * [x] which key
 * [x] expand-region
 * [x] code folding
+* [x] cider-apropos
 * [x] [anzu](https://github.com/syohex/emacs-evil-anzu)
   - [x] add `e` prefix for edit, and put flycheck stuff (formerly `error`) under `l` for lint
   - anzu only checks from cursor to end of document

@@ -144,6 +144,12 @@
  "w" '(paredit-wrap-sexp :which-key "wrap")
  "t" '(sp-transpose-sexp :which-key "transpose")
 
+ "?" '(:ignore t :which-key "documentation")
+ "? d" '(cider-doc :which-key "cider-doc")
+ "? j" '(cider-doc :which-key "cider-javadoc")
+ "? a" '(cider-doc :which-key "cider-apropos")
+ "? g" '(cider-doc :which-key "cider-grimore")
+
  "'" '(cider-jack-in :which-key "cider jack in")
  "e" '(:ignore t :which-key "eval")
  "e b" '(cider-eval-buffer :which-key "eval buffer")
